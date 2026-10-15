@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ludo Board (Table)</title>
+<style>
+  :root {
+    --green: #008000;
+    --yellow: #ffdd30;
+    --blue: #006bbd;
+    --red: #ff0000;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0070c8, #ff0000 55%, #ffc030);
+  }
+
+  table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 600px;            /* 15 columns x 40px */
+    background: #fff;
+  }
+  col { width: 40px; }
+
+  /* Raaste ke chhote cells */
+  td {
+    height: 40px;
+    border: 1px solid #000;
+    background: #fff;
+  }
+  td.g { background: var(--green); }
+  td.y { background: var(--yellow); }
+  td.b { background: var(--blue); }
+  td.r { background: var(--red); }
+
+  /* th: chaar ghar + beech ka hissa */
+  th {
+    border: none;
+    padding: 0;
+    vertical-align: middle;
+    text-align: center;
+  }
+  th.home-g { background: var(--green); }
+  th.home-y { background: var(--yellow); }
+  th.home-r { background: var(--red); }
+  th.home-b { background: var(--blue); }
+
+  th.center {
+    background: conic-gradient(
+      #ffff00 0deg,
+      #0000ff 90deg,
+      #ff0000 180deg,
+      #008000 270deg,
+      #ffff00 360deg
+    );
+  }
+
+  /* Ghar ke andar 4 goti */
+  .inner {
+    width: 140px;
+    height: 140px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    background: rgba(0, 0, 0, .15);
+  }
+  .inner span {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+  }
+</style>
+</head>
+<body>
+
+<table>
+  <colgroup><col span="15"></colgroup>
+
+  <!-- ===== Upar wale 6 rows ===== -->
+  <tr>
+    <th class="home-g" rowspan="6" colspan="6"><div class="inner"><span></span><span></span><span></span><span></span></div></th>
+    <td></td><td></td><td></td>
+    <th class="home-y" rowspan="6" colspan="6"><div class="inner"><span></span><span></span><span></span><span></span></div></th>
+  </tr>
+  <tr><td></td><td class="y"></td><td class="y"></td></tr>
+  <tr><td class="g"></td><td class="y"></td><td></td></tr>
+  <tr><td></td><td class="y"></td><td></td></tr>
+  <tr><td></td><td class="y"></td><td></td></tr>
+  <tr><td></td><td class="y"></td><td></td></tr>
+
+  <!-- ===== Beech ke 3 rows ===== -->
+  <tr>
+    <td></td><td class="g"></td><td></td><td></td><td></td><td></td>
+    <th class="center" rowspan="3" colspan="3"></th>
+    <td></td><td></td><td></td><td class="y"></td><td></td><td></td>
+  </tr>
+  <tr>
+    <td></td><td class="g"></td><td class="g"></td><td class="g"></td><td class="g"></td><td class="g"></td>
+    <td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td></td>
+  </tr>
+  <tr>
+    <td></td><td></td><td class="r"></td><td></td><td></td><td></td>
+    <td></td><td></td><td></td><td></td><td class="b"></td><td></td>
+  </tr>
+
+  <!-- ===== Neechay wale 6 rows ===== -->
+  <tr>
+    <th class="home-r" rowspan="6" colspan="6"><div class="inner"><span></span><span></span><span></span><span></span></div></th>
+    <td></td><td class="r"></td><td></td>
+    <th class="home-b" rowspan="6" colspan="6"><div class="inner"><span></span><span></span><span></span><span></span></div></th>
+  </tr>
+  <tr><td></td><td class="r"></td><td></td></tr>
+  <tr><td></td><td class="r"></td><td></td></tr>
+  <tr><td></td><td class="r"></td><td></td></tr>
+  <tr><td></td><td class="r"></td><td class="b"></td></tr>
+  <tr><td></td><td class="r"></td><td></td></tr>
+
+</table>
+
+</body>
+</html>
